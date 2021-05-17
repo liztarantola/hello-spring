@@ -22,17 +22,18 @@ public class HelloController {
 
     // lives /hello/hello
     //Handles request of the form /hello?name=LaunchCode
-    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "hello")
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
     public String helloWithQueryParam(@RequestParam String name) {
         return "Hello, " + name + "!";
     }
 
     //Handles request of the form /hello/LaunchCode
-    @GetMapping("hello/{name}")
+    @GetMapping("{name}")
     public String helloWithPathParam(@PathVariable String name){
         return "Hello, " + name + "!";
     }
 
+    // /hello/form
     @GetMapping("form")
     public String helloForm(){
         return "<html>" +
